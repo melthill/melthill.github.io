@@ -1,0 +1,8 @@
+- name: About Me
+  link: /about
+- name: CV
+  link: /cv
+- name: Portfolio
+  link: /portfolio
+- name: Contact
+  link: /contact

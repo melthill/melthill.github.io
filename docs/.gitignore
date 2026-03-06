@@ -5,3 +5,7 @@ _site
 vendor
 
 Gemfile.lock
+
+_arts
+_projects
+_designs

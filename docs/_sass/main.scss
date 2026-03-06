@@ -1,0 +1,79 @@
+:root {
+  --dark-green: #3b3b0d;
+  --light-green: #8d771e;
+  --off-white: #fffbd2;
+  --off-white-transparent: #fffbd287;
+  --yellow: #edab33;
+  --orange: #dc7715;
+}
+
+.bg-dark-green {
+  background-color: var(--dark-green);
+}
+.bg-light-green {
+  background-color: var(--light-green);
+}
+.bg-off-white {
+  background-color: var(--off-white);
+}
+.bg-yellow {
+  background-color: var(--yellow);
+}
+.bg-orange {
+  background-color: var(--orange);
+}
+
+.text-off-white {
+  color: var(--off-white);
+}
+.text-orange {
+  color: var(--orange);
+}
+
+[data-bs-theme="off-white"] {
+  .nav-link {
+    color: var(--off-white-transparent);
+  }
+  .nav-link.active {
+    color: var(--off-white);
+  }
+  .nav-link:hover {
+    color: var(--off-white);
+  }
+}
+
+body {
+  background-color: var(--off-white);
+}
+
+@media (min-width: 1200px) {
+    .container{
+        max-width: 1140px;
+    }
+}
+
+.material-symbols-outlined {
+  font-size: 50px;
+  line-height: normal;
+}
+
+.icon-button {
+  color: var(--off-white);
+}
+
+.no-mb {
+  margin-bottom: 0;
+}
+
+.header {
+  background-color: var(--light-green);
+  color: var(--off-white);
+}
+
+.nav-item {
+  padding: 0 0.5vw 0 0.5vw;
+}
+
+.min-page-height {
+  min-height: 100vh;
+}
