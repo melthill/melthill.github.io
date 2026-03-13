@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<div class="header">
+    <div class="container pt-4 pb-2">
+        <div class="d-flex align-items-center">
+            {% assign return_link = page.url | split: "/" | pop | join: "/" %}
+            {% if return_link != "" %} 
+                <a href="{{ return_link }}" class="return-button">
+                    <span class="material-symbols-outlined icon-xl">chevron_left</span>
+                </a> 
+            {% endif %}
+            
+            <h1 class="no-mb display-1">{{ page.title }}</h1>
+        </div>
+    </div>
+</div>
+
+<div class="container py-4 px-5 px-sm-0 mb-auto">
+    {{ content }}
+</div>

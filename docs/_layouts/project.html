@@ -1,7 +1,30 @@
 ---
 layout: default
+permalink: /portfolio/projects/:name
 ---
-<h1>{{ page.name }}</h1>
-<h2>{{ page.type }}</h2>
 
-{{ content }}
+{%  assign source = "/assets/images/portfolio/art/preview.png" %}
+
+<div class="image-header" style="background-image: url({{source}});">
+    <div class="transparent-header">
+        <div class="container pb-2">
+            <div class="d-flex align-items-center">
+                <a href="/portfolio/projects" class="return-button">
+                    <span class="material-symbols-outlined icon-xl">chevron_left</span>
+                </a>
+
+                <div class="w-100">
+                    <h1 class="no-mb display-2">{{ page.title }}</h1>
+                    <div class="d-flex justify-content-between">
+                        <h4 class="fw-light">{{ page.type }}</h4>
+                        <h4 class="fw-light">{{ page.formatted-dates }}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-4 px-5 px-sm-0 mb-auto">
+    {{ content }}
+</div>

@@ -1,0 +1,43 @@
+---
+layout: main
+title: Digital Art
+permalink: /portfolio/art
+---
+
+<div class="row justify-content-center g-4">
+  {%  assign art_sorted = site.art |  sort: 'nid' %}
+  {% for a in art_sorted %}
+    {% assign col_size = "col-" | append: a.size %}
+    <div class={{ col_size }}>
+      {%  assign source = "/assets/images/portfolio/art/" | append: a.src %}
+      <img id="{{a.nid}}" src="{{ source }}" alt="{{ a.title }}" class="image-card" onclick="showModal()">
+    </div>
+  {% endfor %}
+</div>
+
+{% for a in site.art %}
+  {% assign modal_id = "modal-" | append: a.nid %}
+  <div id="{{ modal_id }}" class="custom-modal-bg">
+    <div class="custom-modal" {%  if a.size < 8 %} style="display: flex;" {% endif %}>
+      {%  assign source = "/assets/images/portfolio/art/" | append: a.src %}
+      <img src="{{ source }}" alt="{{ a.title }}" {%  if a.size < 8 %} class="custom-modal-v-img" {% else %} class="custom-modal-h-img" {% endif %}>
+
+      <div {%  if a.size < 8 %} class="custom-modal-v-text" {% else %} class="custom-modal-h-text" {% endif %}>
+        <h2 class="no-mb">{{ a.title }}</h2>
+        <p>{{ a.content | mardownify }}</p>
+      </div>
+    </div>  
+  </div> 
+{% endfor %}
+
+<script>
+  function showModal() {
+    document.getElementById("modal-" + event.target.id).style.display = "block"
+  }
+
+  window.onclick = function(event) {
+    if (event.target.className == "custom-modal-bg") {
+      event.target.style.display = "none";
+    }
+  } 
+</script>

@@ -1,15 +1,34 @@
 ---
-layout: default
+layout: main
 title: Software Projects
 permalink: /portfolio/projects
 ---
 
-<ul>
+<div class="row g-4">
   {% for p in site.projects %}
-    <li>
-      <h2><a href="{{ p.url }}">{{ p.name }}</a></h2>
-      <h3>{{ p.type }}</h3>
-      <p>{{ p.content | markdownify }}</p>
-    </li>
+    <div class="col-12">
+      <div class="custom-card d-flex shadow">
+        <div class="custom-card-v-title d-flex flex-column">
+          <h1 class="no-mb">{{ p.title }}</h1>
+          <h5 class="fw-light">{{ p.type }}</h5>
+          <hr class="no-mb">
+          <p>{{ p.content | markdownify }}</p>
+          
+          <div class="d-flex justify-content-between align-items-end mt-auto">
+            <p class="no-mb fw-light">{{ p.formatted-dates }}</p>
+            <span class="material-symbols-outlined icon-lg custom-card-arrow">chevron_right</span>
+          </div>
+        </div>
+
+        <div class="position-relative">
+          {%  assign source = "/assets/images/portfolio/art/preview.png" %}
+          <img src="{{ source }}" class="custom-card-v-img">
+
+          <div class="custom-card-v-color"></div>
+        </div>
+
+        <a href="{{ p.url }}" class="stretched-link"></a>
+      </div>
+    </div>
   {% endfor %}
-</ul>
+</div>

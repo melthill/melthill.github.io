@@ -1,10 +1,29 @@
 ---
-layout: default
+layout: main
 title: Portfolio
 permalink: /portfolio
 ---
-{% include wip.html %}
 
-{% comment %} <a href="/portfolio/projects">Software Projects</a> </br>
-<a href="/portfolio/art">Digital Art</a> </br>
-<a href="/portfolio/design">Graphic Design</a> {% endcomment %}
+<div class="row g-4">
+    {% for i in site.data.portfolio %} 
+        <div class="col-6">
+            <div class="custom-card shadow">
+                
+                <div class="position-relative">
+                    {%  assign source = "/assets/images/portfolio" |  append: i.link |  append: "/preview.png" %}
+                    <img src="{{ source }}" class="custom-card-h-img">
+
+                    <div class="custom-card-h-color"></div>
+                </div>
+                
+                <div class="custom-card-h-title">
+                    <h3>{{ i.name }}</h3>
+                    <span class="material-symbols-outlined icon-lg custom-card-arrow">chevron_right</span>
+                </div>
+
+                {%  assign link = "/portfolio" |  append: i.link %}
+                <a href="{{ link }}" class="stretched-link"></a>
+            </div>
+        </div>
+    {% endfor %}
+</div>

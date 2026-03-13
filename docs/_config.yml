@@ -37,9 +37,10 @@ plugins:
 collections:
   projects:
     output: true
-  arts:
+    permalink: /portfolio/projects/:title
+  art:
     output: true
-  designs:
+  design:
     output: true
 
 defaults:
