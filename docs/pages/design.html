@@ -1,14 +1,6 @@
 ---
-layout: main
+layout: images
 title: Graphic Design
 permalink: /portfolio/design
+folder: design/
 ---
-
-<ul>
-  {% for d in site.designs %}
-    <li>
-      <h2><a href="{{ d.url }}">{{ d.name }}</a></h2>
-      <p>{{ d.content | markdownify }}</p>
-    </li>
-  {% endfor %}
-</ul>
