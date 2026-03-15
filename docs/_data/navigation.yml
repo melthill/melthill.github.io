@@ -1,8 +1,9 @@
-- name: About Me
-  link: /about
 - name: CV
   link: /cv
+  text: View my CV
 - name: Portfolio
   link: /portfolio
+  text: Check out my Portfolio
 - name: Contact
   link: /contact
+  text: Contact me

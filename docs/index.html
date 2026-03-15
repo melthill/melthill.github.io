@@ -1,7 +1,26 @@
 ---
-layout: main
+layout: default
 title: Home
 ---
-<div class="container py-4 px-5 px-sm-0 mb-auto">
-    {% include wip.html %}
+<div class="image-header flex-fill">
+    <div class="transparent-header d-flex justify-content-center align-items-center">
+        <div class="index-container">
+            <img src="/assets/images/cats/shadow2.jpg" alt="Personal Portrait" class="portrait-image mb-4">
+    
+            <div class="fs-1 shadow-text text-center mb-3">
+                Heya, my name is 
+                <span class="fw-bolder">Mel Thill </span>
+                and I am a digital artist and software developer :)
+            </div>
+
+            <div class="d-sm-flex">
+                {% for item in site.data.navigation %} 
+                    <a href="{{ item.link }}" class="link-button shadow-text">
+                        <p class="no-mb me-2">{{ item.text }}</p>
+                        <span class="material-symbols-outlined">chevron_right</span>
+                    </a>
+                {% endfor %} 
+            </div>
+        </div>
+    </div>
 </div>
