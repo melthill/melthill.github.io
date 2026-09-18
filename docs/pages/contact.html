@@ -4,4 +4,64 @@ title: Contact
 permalink: /contact
 ---
 
-{% include wip.html %}
+<div class="row gx-5 gy-3 justify-content-center">
+    <div class="col-sm-10 col-lg-6">
+        <h1 class="d-lg-none mb-2 fw-bold">Feel free to reach out!</h1>
+        <h2 class="d-none d-lg-block mb-3 fw-bold">Feel free to reach out!</h2>
+
+        <div class="">
+            <div class="mb-2">
+                <label for="name" class="form-label fw-bold">Name</label>
+                <input class="form-control" id="name" placeholder="Your name">
+            </div>
+            <div class="mb-2">
+                <label for="subject" class="form-label fw-bold">Subject</label>
+                <input class="form-control" id="subject" placeholder="Your subject">
+            </div>
+            <div class="mb-2">
+                <label for="body" class="form-label fw-bold">Message</label>
+                <textarea class="form-control" id="body" rows="3" placeholder="Your message"></textarea>
+            </div>
+            <div class="d-flex justify-content-end">
+                <button onclick="sendEmail()" class="custom-button">Send Email</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-10 col-lg-6">
+        <h1 class="d-lg-none mb-2 fw-bold">...or check out my Socials!</h1>
+        <h2 class="d-none d-lg-block mb-3 fw-bold">...or check out my Socials!</h2>
+
+        {% for item in site.data.socials %} 
+            <div class="mb-2 custom-card">
+                <div class="custom-card-content d-flex justify-content-center align-items-center">
+                    <a href="{{ item.link }}" target="_blank" class="social-link stretched-link me-0">
+                        <img class="social-border" src="https://cdn.brandfetch.io/domain/{{ item.site }}/h/55/w/55?c=1bxid64Mup7aczewSAYMX&t=1783913787517">
+                    </a>
+                    <p class="ms-3 mb-0 flex-fill d-none d-sm-block">{{ item.link }}</p>
+                </div>
+            </div>
+        {% endfor %} 
+    </div>
+</div>
+
+<script>
+    function sendEmail() {
+        var n = document.getElementById("name");
+        var s = document.getElementById("subject");
+        var b = document.getElementById("body");
+
+        console.log(b.value);
+
+        var name = "Unknown"
+        if (n.value == "" || s.value == "" || b.value == "") {
+            console.log("no!")
+        } else {
+            var body = b.value.replace(/\n/g, "%0D%0A")
+            window.open("mailto:melthill2003@gmail.com?subject=" + n.value + " - " + s.value + "?body=" + body, "_self");
+            n.value = "";
+            s.value = "";
+            b.value = "";
+        } 
+    }
+</script>

@@ -1,7 +1,20 @@
-<div class="container-fluid py-2 bg-dark-green text-off-white">
-    <div class="d-flex justify-content-center">
-        <p class="no-mb text-decoration-underline">Copyright 2026</p>
-        <p class="no-mb mx-2">-</p>
-        <p class="no-mb">Mel Thill</p>
+<div class="container-fluid px-4 py-3 bg-dark-green text-off-white">
+    <div class="row g-3">
+        <div class="d-none d-lg-block col-lg-5">
+
+        </div>
+
+        <div class="col-sm-6 col-lg-5 d-flex justify-content-center justify-content-sm-end order-sm-last">
+            {% for item in site.data.socials %} 
+                <a href="{{ item.link }}" target="_blank" class="social-link">
+                    <img class="social-border" src="https://cdn.brandfetch.io/domain/{{ item.site }}/h/40/w/40?c=1bxid64Mup7aczewSAYMX&t=1783913787517">
+                </a>
+            {% endfor %} 
+        </div>
+
+        <div class="col-sm-6 col-lg-2 d-flex justify-content-center justify-content-sm-start justify-content-lg-center align-items-end">
+            <p class="no-mb text-decoration-underline">Copyright 2026</p>
+        </div>
     </div>
+    
 </div>

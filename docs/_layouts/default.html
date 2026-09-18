@@ -19,7 +19,7 @@
         {% seo %}
     </head>
 
-    <body>
+<body {% if page.url == "/" %} class="green-body" {% endif %}>
         <div class="d-flex flex-column min-page-height">
             {% include navigation.html %}
 
