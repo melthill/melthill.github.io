@@ -49,6 +49,10 @@
   }
 }
 
+.form-control {
+  border: solid var(--dark-green-extra-transparent) 1px;
+}
+
 body {
   background-color: var(--off-white);
   color: var(--dark-green);
@@ -177,7 +181,6 @@ body {
   background-color: var(--dark-green-transparent);
   border: solid var(--dark-green-transparent) 1px;
   padding: 0.5em 1.5em;
-  margin: 0.5em 0em;
   border-radius: 0.5em;
   display: flex;
   align-items: center;
@@ -213,6 +216,7 @@ body {
 .custom-card-content {
   border-radius: var(--corner-radius);
   background-color: var(--dark-green-extra-transparent);
+  border: solid var(--dark-green-extra-transparent) 1px;
   color: var(--dark-green);
   padding: 0.5rem 0.5rem;
 }
