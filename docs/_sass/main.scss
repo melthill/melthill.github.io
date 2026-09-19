@@ -62,9 +62,9 @@ body {
 }
 
 @media (min-width: 1200px) {
-    .container{
-        max-width: 1140px;
-    }
+  .container{
+    max-width: 1140px;
+  }
 }
 
 .material-symbols-outlined {
@@ -162,6 +162,12 @@ body {
   border-radius: 5%;
 }
 
+@media (max-width: 576px) {
+  .fs-mini {
+    font-size: 0.8em;
+  }
+}
+
 .link-button {
   text-decoration: none;
   color: var(--off-white);
@@ -187,6 +193,25 @@ body {
 }
 .custom-button:hover {
   background-color: var(--dark-green);
+}
+
+.custom-alert {
+  color: var(--orange);
+  background-color: var(--yellow-transparent);
+  border: solid var(--yellow) 1px;
+  border-radius: var(--corner-radius);
+  padding: 0.5rem 0.5rem;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+}
+.alert-success {
+  color: var(--dark-green-transparent);
+  background-color: var(--dark-green-extra-transparent);
+  border: solid var(--dark-green-extra-transparent) 1px;
+}
+.alert-show {
+  display: flex;
 }
 
 .nav-item {

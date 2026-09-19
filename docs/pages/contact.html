@@ -5,11 +5,20 @@ permalink: /contact
 ---
 
 <div class="row gx-5 gy-3 justify-content-center">
-    <div class="col-sm-10 col-lg-5">
+    <div class="col-sm-10 col-lg-6">
         <h1 class="d-lg-none mb-2 fw-bold">Feel free to reach out!</h1>
         <h2 class="d-none d-lg-block mb-3 fw-bold">Feel free to reach out!</h2>
 
         <div class="">
+            <div id="warnAlert" class="custom-alert">
+                <p class="no-mb">Please enter something into each of the boxes!</p>
+                <span onclick="closeWarnAlert()" class="material-symbols-outlined">close</span>
+            </div>
+            <div id="successAlert" class="custom-alert alert-success">
+                <p class="no-mb">Please complete your message in your email app!</p>
+                <span onclick="closeSuccessAlert()" class="material-symbols-outlined">close</span>
+            </div>
+
             <div class="mb-2">
                 <label for="name" class="form-label fw-bold">Name</label>
                 <input class="form-control" id="name" placeholder="Your name">
@@ -18,17 +27,18 @@ permalink: /contact
                 <label for="subject" class="form-label fw-bold">Subject</label>
                 <input class="form-control" id="subject" placeholder="Your subject">
             </div>
-            <div class="mb-2">
+            <div class="mb-3">
                 <label for="body" class="form-label fw-bold">Message</label>
                 <textarea class="form-control" id="body" rows="3" placeholder="Your message"></textarea>
             </div>
+            
             <div class="d-flex justify-content-end">
-                <button onclick="sendEmail()" class="custom-button mt-2">Send Email</button>
+                <button onclick="sendEmail()" class="custom-button mt-2">Submit Email to be sent</button>
             </div>
         </div>
     </div>
 
-    <div class="col-sm-10 col-lg-7">
+    <div class="col-sm-10 col-lg-5">
         <h1 class="d-lg-none mb-2 fw-bold">...or check out my Socials!</h1>
         <h2 class="d-none d-lg-block mb-3 fw-bold">...or check out my Socials!</h2>
 
@@ -36,9 +46,10 @@ permalink: /contact
             <div class="mb-2 custom-card">
                 <div class="custom-card-content d-flex justify-content-center align-items-center">
                     <a href="{{ item.link }}" target="_blank" class="social-link stretched-link me-0">
-                        <img class="social-border" src="https://cdn.brandfetch.io/domain/{{ item.site }}/h/55/w/55?c=1bxid64Mup7aczewSAYMX&t=1783913787517">
+                        <img class="social-border d-none d-sm-block" src="https://cdn.brandfetch.io/domain/{{ item.site }}/h/55/w/55?c=1bxid64Mup7aczewSAYMX&t=1783913787517">
+                        <img class="social-border d-block d-sm-none" src="https://cdn.brandfetch.io/domain/{{ item.site }}/h/40/w/40?c=1bxid64Mup7aczewSAYMX&t=1783913787517">
                     </a>
-                    <p class="ms-3 mb-0 flex-fill d-none d-sm-block">{{ item.link }}</p>
+                    <p class="ms-1 ms-md-2 ms-xl-3 mb-0 flex-fill fs-mini">{{ item.link }}</p>
                 </div>
             </div>
         {% endfor %} 
@@ -51,17 +62,25 @@ permalink: /contact
         var s = document.getElementById("subject");
         var b = document.getElementById("body");
 
-        console.log(b.value);
-
         var name = "Unknown"
         if (n.value == "" || s.value == "" || b.value == "") {
-            console.log("no!")
+            document.getElementById("warnAlert").classList.add("alert-show");
         } else {
+            document.getElementById("successAlert").classList.add("alert-show");
             var body = b.value.replace(/\n/g, "%0D%0A")
             window.open("mailto:melthill2003@gmail.com?subject=" + n.value + " - " + s.value + "?body=" + body, "_self");
-            n.value = "";
-            s.value = "";
-            b.value = "";
         } 
+    }
+
+    function closeWarnAlert() {
+        document.getElementById("warnAlert").classList.remove("alert-show");
+    }
+
+    function closeSuccessAlert() {
+        document.getElementById("successAlert").classList.remove("alert-show");
+
+        document.getElementById("name").value = "";
+        document.getElementById("subject").value = "";
+        document.getElementById("body").value = "";
     }
 </script>
