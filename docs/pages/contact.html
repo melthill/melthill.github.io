@@ -9,6 +9,19 @@ permalink: /contact
         <h1 class="d-lg-none mb-2 fw-bold">Feel free to reach out!</h1>
         <h2 class="d-none d-lg-block mb-3 fw-bold">Feel free to reach out!</h2>
 
+        <p class="no-mb">
+            Email me at
+            <span class="text-decoration-underline fst-italic">melthill2003@gmail.com</span> 
+            or submit the form below.
+        </p>
+        
+
+        <hr class="mb-2">
+
+        <div class="d-flex justify-content-center">
+            <p class="no-mb fst-italic text-sm">[ Warning: This form is a work in progress and it might not work as expected. ]</p>
+        </div>
+
         <div class="">
             <div id="warnAlert" class="custom-alert">
                 <p class="no-mb">Please enter something into each of the boxes!</p>
@@ -49,7 +62,7 @@ permalink: /contact
                         <img class="social-border d-none d-sm-block" src="https://cdn.brandfetch.io/domain/{{ item.site }}/h/55/w/55?c=1bxid64Mup7aczewSAYMX&t=1783913787517">
                         <img class="social-border d-block d-sm-none" src="https://cdn.brandfetch.io/domain/{{ item.site }}/h/40/w/40?c=1bxid64Mup7aczewSAYMX&t=1783913787517">
                     </a>
-                    <p class="ms-1 ms-md-2 ms-xl-3 mb-0 flex-fill fs-mini">{{ item.link }}</p>
+                    <p class="text-wrap ms-1 ms-md-2 ms-xl-3 mb-0 flex-fill fs-mini">{{ item.link }}</p>
                 </div>
             </div>
         {% endfor %} 
@@ -78,9 +91,5 @@ permalink: /contact
 
     function closeSuccessAlert() {
         document.getElementById("successAlert").classList.remove("alert-show");
-
-        document.getElementById("name").value = "";
-        document.getElementById("subject").value = "";
-        document.getElementById("body").value = "";
     }
 </script>

@@ -37,6 +37,10 @@
   color: var(--orange);
 }
 
+.text-sm {
+  font-size: 0.9em;
+}
+
 [data-bs-theme="off-white"] {
   .nav-link {
     color: var(--off-white-transparent);
