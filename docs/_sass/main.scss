@@ -226,7 +226,7 @@ body {
   object-fit: contain;
   height: 100%;
   width: 100%;
-  background-color: var(--dark-green-transparent);
+  background-color: var(--black-transparent);
 }
 
 .custom-card {
@@ -342,7 +342,7 @@ body {
   border: var(--dark-green) solid 1px;
   background-color: var(--dark-green-transparent);
   border-bottom: 0;
-  max-height: 70vh;
+  max-height: 80vh;
   width: 100%;
   object-fit: contain;
 }

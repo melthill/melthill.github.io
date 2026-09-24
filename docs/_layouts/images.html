@@ -3,34 +3,33 @@ layout: main
 ---
 
 {% if page.url contains "art" %}
-    {% assign itemlist = site.art %}
+    {% assign itemlist = site.data.art %}
 {% else %}
     {% assign itemlist = site.design %}
 {% endif %}
 
-<div class="row justify-content-center g-1 g-sm-2 g-md-3 g-lg-4">
-  {%  assign art_sorted = itemlist |  sort: 'nid' %}
-  {% for a in art_sorted %}
-    {% assign col_size = "col-" | append: a.size %}
+<div class="row justify-content-center g-2 g-md-3 g-lg-4">
+
+  {% for i in itemlist %}
+    {% assign col_size = "col-" | append: i.size %}
     <div class={{ col_size }}>
-        {%  assign source = "/assets/images/portfolio/" | append: page.folder | append: a.src %}
-        <img id="{{a.nid}}" src="{{ source }}" alt="{{ a.title }}" class="image-card" onclick="showModal()">
+        {%  assign source = "/assets/images/portfolio/" | append: page.folder | append: i.src %}
+        <img id="{{i.src}}" src="{{ source }}" alt="{{ i.title }}" class="image-card" onclick="showModal()">
     </div>
   {% endfor %}
 </div>
 
-{% for a in itemlist %}
-  {% assign modal_id = "modal-" | append: a.nid %}
+{% for i in itemlist %}
+  {% assign modal_id = "modal-" | append: i.src %}
   <div id="{{ modal_id }}" class="custom-modal-bg">
     <div class="custom-modal">
-        {%  assign source = "/assets/images/portfolio/" | append: page.folder | append: a.src %}
+        {%  assign source = "/assets/images/portfolio/" | append: page.folder | append: i.src %}
         <img src="{{ source }}" alt="{{ a.title }}" class="custom-modal-img">
 
         <span class="material-symbols-outlined icon-xl custom-modal-close" onclick="hideModal()">close</span>
 
         <div class="custom-modal-text">
-            <h3 class="no-mb fw-bold">{{ a.title }}</h3>
-            <p>{{ a.content | mardownify }}</p>
+            <h3 class="no-mb fw-bold">{{ i.title }}</h3>
         </div>
     </div>  
   </div> 
