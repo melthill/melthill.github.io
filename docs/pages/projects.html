@@ -4,4 +4,84 @@ title: Software Projects
 permalink: /portfolio/projects
 ---
 
-{% include wip.html %}
+<div class="row g-4">
+  {% assign recent_first = site.projects |  sort: "id" %}
+
+  {% for p in recent_first %}
+    {%  assign source = "/assets/images/portfolio/projects" |  append: p.link |  append: "/preview.png" %}
+    
+    <div class="col-12">
+      <div class="custom-card d-lg-none shadow">
+        <div class="position-relative">
+          <img src="{{ source }}" alt="{{ p.title | append: ' Preview' }}" class="custom-card-h-img">
+          <div class="custom-card-h-color"></div>
+        </div>
+
+        <div class="custom-card-h-title d-flex flex-column">
+          <h1 class="no-mb">{{ p.title }}</h1>
+          <h5 class="fw-light">{{ p.type }}</h5>
+          
+          <hr>
+
+          {% if p.content == '' %}
+            <div class="d-flex justify-content-center">
+              <p class="no-mb fst-italic">[ WORK IN PROGRESS ]</p>
+            </div>
+          {% endif %}
+
+          <p>{{ p.desc }}</p>
+
+          <div class="tech-stack">
+            {% assign tech_list = p.tech |  split: ", " %}
+            {% for t in tech_list %}
+              <p class="tech-bubble">{{ t }}</p>
+            {% endfor %}
+          </div>
+          
+          <div class="d-flex justify-content-between align-items-end mt-auto">
+            <p class="no-mb fw-light">{{ p.short-dates }}</p>
+            <span class="material-symbols-outlined icon-lg custom-card-arrow">chevron_right</span>
+          </div>
+        </div>
+
+        <a href="{{ p.url }}" class="stretched-link"></a>
+      </div>
+
+      <div class="custom-card d-none d-lg-flex shadow">
+        <div class="custom-card-v-title d-flex flex-column">
+          <h1 class="no-mb">{{ p.title }}</h1>
+          <h5 class="fw-light">{{ p.type }}</h5>
+          
+          <hr>
+
+          {% if p.content == '' %}
+            <div class="d-flex justify-content-center">
+              <p class="no-mb fst-italic">[ WORK IN PROGRESS ]</p>
+            </div>
+          {% endif %}
+
+          <p>{{ p.desc }}</p>
+
+          <div class="tech-stack">
+            {% assign tech_list = p.tech |  split: ", " %}
+            {% for t in tech_list %}
+              <p class="tech-bubble">{{ t }}</p>
+            {% endfor %}
+          </div>
+          
+          <div class="d-flex justify-content-between align-items-end mt-auto">
+            <p class="no-mb fw-light">{{ p.dates }}</p>
+            <span class="material-symbols-outlined icon-lg custom-card-arrow">chevron_right</span>
+          </div>
+        </div>
+
+        <div class="position-relative">
+          <img src="{{ source }}" alt="{{ p.title | append: ' Preview' }}" class="custom-card-v-img">
+          <div class="custom-card-v-color"></div>
+        </div>
+
+        <a href="{{ p.url }}" class="stretched-link"></a>
+      </div>
+    </div>
+  {% endfor %}
+</div>
