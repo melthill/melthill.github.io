@@ -11,6 +11,7 @@
   --yellow-transparent: #edac3348;
   --orange: #dc7715;
   --grey-transparent: #3f3b2dd6;
+  --black-dark-transparent: #000000c6;
   --black-transparent: #0000007b;
   --corner-radius: 0.5rem;
 }
@@ -27,12 +28,18 @@
 .bg-yellow {
   background-color: var(--yellow);
 }
+.bg-yellow-transparent {
+  background-color: var(--yellow-transparent);
+}
 .bg-orange {
   background-color: var(--orange);
 }
 
 .text-off-white {
   color: var(--off-white);
+}
+.text-off-white-transparent {
+  color: var(--off-white-transparent);
 }
 .text-orange {
   color: var(--orange);
@@ -86,7 +93,7 @@ body {
 }
 .return-button {
   color: var(--off-white);
-  margin-right: 2em;
+  margin-right: 1em;
 }
 
 .no-mb {
@@ -120,44 +127,64 @@ body {
 }
 @media (min-width: 576px) {
   .index-container {
-  padding: 3em 4em;
+  padding: 5em 4em;
 }
 }
 @media (min-width: 768px) {
   .index-container {
-  padding: 3em 6em;
+  padding: 8em 6em;
 }
 }
 @media (min-width: 992px) {
   .index-container {
-  padding: 3em 2em;
+  padding: 10em 2em;
 }
 }
 
 .portrait-image {
   aspect-ratio: 1;
   width: 100%;
-  max-width: 200px;
   border-radius: 50%;
-  border: solid var(--orange) 10px;
-  outline: double var(--yellow) 10px;
+  box-shadow: 3px 3px 5px var(--black-transparent);
 }
-@media (min-width: 576px) {
+@media (min-width: 1600px) {
   .portrait-image {
     max-width: 300px;
+    align-self: self-end;
   }
 }
 
+.preview-image {
+  width: 100%;
+}
+
+.project-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--dark-green-transparent);
+}
+.project-image {
+  width: 95%;
+  border: solid var(--dark-green-transparent) 2px;
+  border-radius: var(--corner-radius);
+}
+
+.project-text {
+  text-align: justify;
+  font-size: large;
+}
+
 .social-link {
-  border-radius: 5%;
+  border-radius: 50%;
   padding: 0.3em;
   margin-right: 0.4em;
 }
 .social-link:hover {
-  background-color: var(--black-transparent);
+  background-color: var(--off-white-extra-transparent);
 }
 .social-border {
-  border-radius: 5%;
+  border-radius: 50%;
 }
 
 @media (max-width: 576px) {
@@ -169,15 +196,17 @@ body {
 .link-button {
   text-decoration: none;
   color: var(--off-white);
-  padding: 0.5em 1.5em;
+  background-color: var(--light-green-transparent);
+  padding: 0.3em 1.5em;
   margin: 0.5em;
   border-radius: 2em;
-  border: solid var(--yellow) 1px;
+  border: solid var(--light-green) 1px;
   display: flex;
   align-items: center;
 }
 .link-button:hover {
-  background-color: var(--yellow-transparent);
+  
+  background-color: var(--light-green);
 }
 
 .tech-stack {
@@ -189,8 +218,8 @@ body {
 }
 .tech-bubble {
   color: var(--off-white);
-  background-color: var(--off-white-extra-transparent);
-  border: solid var(--off-white-transparent) 1px;
+  background-color: var(--light-green-transparent);
+  border: solid var(--light-green) 1px;
   border-radius: 2em;
   padding: 0.2em 0.8em;
   margin: 0;
@@ -232,7 +261,7 @@ body {
 }
 
 .nav-item {
-  padding: 0 0.5vw 0 0.5vw;
+  padding: 0 1em;
 }
 
 .min-page-height {
@@ -258,9 +287,8 @@ body {
 .custom-card-content {
   border-radius: var(--corner-radius);
   background-color: var(--dark-green-extra-transparent);
-  border: solid var(--dark-green-extra-transparent) 1px;
   color: var(--dark-green);
-  padding: 0.5rem 0.5rem;
+  padding: 0.3em;
 }
 
 .custom-card-h-img {
@@ -276,7 +304,7 @@ body {
   border-bottom-left-radius: var(--corner-radius);
   border-bottom-right-radius: var(--corner-radius);
   background-color: var(--dark-green);
-  padding: 0.8rem 1.5rem;
+  padding: 2em;
   border: var(--dark-green) solid 1px;
   border-top: 0;
 }
@@ -299,7 +327,7 @@ body {
   border: var(--dark-green) solid 1px;
   border-left: 0;
   background-color: var(--dark-green);
-  padding: 1em;
+  padding: 2em;
   width: 100%;
   height: 100%;
 }
@@ -307,7 +335,7 @@ body {
   border-top-left-radius: var(--corner-radius);
   border-bottom-left-radius: var(--corner-radius);
   background-color: var(--dark-green);
-  padding: 0.8rem 1.5rem;
+  padding: 2em;
   border: var(--dark-green) solid 1px;
   border-right: 0;
   flex: 0 0 auto;
@@ -345,7 +373,7 @@ body {
   width: 100%;
   height: 100%;
   z-index: 1;
-  background-color: var(--black-transparent);
+  background-color: var(--black-dark-transparent);
 }
 .custom-modal {
   margin: 2em auto;
@@ -359,7 +387,7 @@ body {
   border-top-left-radius: var(--corner-radius);
   border-top-right-radius: var(--corner-radius);
   border: var(--dark-green) solid 1px;
-  background-color: var(--dark-green-transparent);
+  background-color: var(--black-transparent);
   border-bottom: 0;
   max-height: 80vh;
   width: 100%;

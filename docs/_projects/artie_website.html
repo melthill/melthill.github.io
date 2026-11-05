@@ -1,10 +1,53 @@
 ---
-id: 1
+nid: 1
 link: /artie_website
 title: Artie's Alley
 type: Research Project and Website Prototype
 dates: Febuary 2025 - September 2025
 short-dates: Feb 2025 - Sept 2025
-desc: The goal for this MSc Project was to create a prototype for "Artie's Alley", a website that could offer a new and more interesting approach to hosting digital Artist Alleys.
+desc: This prototype was built to showcase a new and more interesting approach to hosting digital "Artist Alleys". It was created as part of the final project for my MSc in Software Development.
 tech: NodeJS, ExpressJS, Prisma, React, Bootstrap, FontAwesome, Zoom Video SDK, MySQL, Github
 ---
+{%  assign source = "/assets/images/portfolio/projects/artie_website/" %}
+
+<div class="row">
+    <div class="col-9">
+        <p class="project-text">
+            {{ page.desc }}
+        </p>
+
+        <hr>
+
+        <p class="project-text">
+            Since at least 1994, Artist Alleys have been considered integral to anime/ comic conventions. Despite their popularity, creators worldwide were deeply negatively affected by the pandemic forcing many events to be moved online. Principally, it seemed that virtual Artist Alleys were simply impossible to get “just right” and thus a lot of convention artists made just a fraction of their usual income. Today, even with the pandemic mostly behind us, creators are still showing a desire for an alternative option to in-person conventions; Be it because of financial/ logistical reasons or because they are disabled and consider the physical event to not be accessible to them. Whatever the case, both artists and their fans showcase a clear interest in virtual conventions.
+        </p>
+
+        <p class="project-text">
+            This project’s primary aim was to remedy the above-described problem by developing a prototype for “Artie’s Alley”, a website that uses a new approach to digital Artist Alleys. In specific, the idea was to incorporate livestreaming into the virtual event to make it more exciting for attendees and creators. Thus, through secondary and primary research, a full list of requirements for the system was identified. This list was then used to design and implement the prototype using NodeJS for its front-end and back-end. For its livestreaming features the application relied on the Zoom Video SDK in combination with React.
+        </p>
+
+        <div class="project-image-container">
+            <img src="{{ source | append: 'project-overview.png' }}" alt="Project Overview" class="project-image">
+            <p class="project-image-description">Project Overview</p>
+        </div>
+    </div>
+
+    <div class="col-3">
+        <div class="custom-card">
+            <div class="custom-card-content d-flex flex-column align-items-center p-4">
+                <h3 class="fw-light">Technology Stack</h3>
+                <div class="row g-3">
+                    {% assign tech_list = page.tech |  split: ", " %}
+                    {% for t in tech_list %}
+                        {% assign tech = site.data.tech[t] %}
+                        <div class="col-6 d-flex justify-content-center">
+                            <a href="{{ tech.link }}" target="_blank" class="social-link me-0">
+                                <img class="social-border" src="https://cdn.brandfetch.io/domain/{{ tech.site }}/h/90/w/90/logo?c=1bxid64Mup7aczewSAYMX&t=1783913787517">
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

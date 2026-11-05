@@ -1,31 +1,51 @@
 ---
-layout: main
-title: Portfolio
+layout: default
+title: Software Projects
 permalink: /portfolio
 ---
+<div class="header">
+    <div class="container pt-4 pb-2">
+        <div class="d-flex align-items-center">
+            <h1 class="display-2">{{ page.title }}</h1>
+        </div>
+    </div>
+</div>
 
-<div class="row g-2 g-md-3 g-lg-4">
-    {% for i in site.data.portfolio %} 
-        <div class="col-md-6">
-            <div class="custom-card shadow">
-                
-                <div class="position-relative">
-                    {%  assign source = "/assets/images/portfolio" |  append: i.link |  append: "/preview.png" %}
-                    <img src="{{ source }}" class="custom-card-h-img">
+{% assign recent_first = site.projects |  sort: "nid" %}
 
-                    <div class="custom-card-h-color"></div>
-                </div>
-                
-                <div class="custom-card-h-title">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h3>{{ i.name }}</h3>
-                        <span class="material-symbols-outlined icon-lg custom-card-arrow">chevron_right</span>
+{% for p in recent_first %}
+    {% assign mod = p.nid | modulo: 2 %}
+    {% assign source = "/assets/images/portfolio/projects" |  append: p.link |  append: "/preview.png" %}
+
+    <div {% if mod == 0 %} class="bg-yellow-transparent" {% endif %}>
+        <div class="container py-4">
+            <div class="row">
+                <div {% if mod != 0 %} class="col-5" {% else %} class="col-5 order-last" {% endif %}>
+                    <div class="d-flex flex-column">
+                        <h1 class="no-mb">{{ p.title }}</h1>
+                        <h5 class="fw-light">{{ p.type }}</h5>
+                        
+                        <hr>
+
+                        <p>{{ p.desc }}</p>
+
+                        <div class="tech-stack mb-5">
+                            {% assign tech_list = p.tech |  split: ", " %}
+                            {% for t in tech_list %}
+                                <p class="tech-bubble">{{ t }}</p>
+                            {% endfor %}
+                        </div>
+                        
+                        <p class="no-mb fw-light mt-auto">{{ p.short-dates }}</p>
                     </div>
+
+                    <a href="{{ p.url }}"></a>
                 </div>
 
-                {%  assign link = "/portfolio" |  append: i.link %}
-                <a href="{{ link }}" class="stretched-link"></a>
+                <div class="col-7 p-4">
+                    <img src="{{ source }}" alt="{{ p.title | append: ' Preview' }}" class="preview-image">
+                </div>
             </div>
         </div>
-    {% endfor %}
-</div>
+    </div>         
+{% endfor %}

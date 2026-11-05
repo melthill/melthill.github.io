@@ -2,33 +2,65 @@
 layout: default
 title: Home
 ---
-<div class="image-header my-auto">
-    <div class="transparent-header">
-       <div class="index-container">
-            <div class="row gx-5 gy-4 justify-content-center">
-                <div class="col-12 col-lg-4 d-flex justify-content-center justify-content-lg-end align-items-center">
-                    <div class="">
-                        <img src="/assets/images/portrait_with_persona.jpg" alt="Personal Portrait" class="portrait-image">
-                    </div>
-                </div>
+<div class="index-container mb-auto">
+    <div class="row gx-5 gy-4 justify-content-center">
+        <div class="col-12 col-lg-3 d-flex justify-content-center align-items-center justify-content-xl-end">
+            <img src="/assets/images/portrait_with_persona.png" alt="Personal Portrait" class="portrait-image">
+        </div>
 
-                <div class="col-12 col-lg-8 col-xl-6 d-flex flex-column justify-content-center">
-                    <div class="fs-1 shadow-text mb-4">
-                        Hi! My name is 
-                        <span class="fw-bolder">Mel Thill </span>
-                        and I am a Software Developer and Digital Artist.
-                    </div>
+        <div class="col-12 col-lg-8 col-xl-5 d-flex flex-column justify-content-end">
+            <h1 class="display-4 fw-normal">Hi, my name is <span class="fw-bolder">Mel</span>.</h1>
+            <h4 class="fw-light mb-4">I am a MSc Software Development graduate with a passion for UI/UX research. When possible I also like to do some work as a digital artist.</h3>
 
-                    <div class="d-md-flex">
-                        {% for item in site.data.navigation %} 
-                            <a href="{{ item.link }}" class="link-button shadow-text">
-                                <p class="no-mb me-2">{{ item.text }}</p>
-                                <span class="material-symbols-outlined">chevron_right</span>
-                            </a>
-                        {% endfor %} 
-                    </div>
-                </div>
+            <div class="d-md-flex mb-2">
+                {% for item in site.data.navigation %} 
+                    {% if item.link != '/art' %}
+                        <a href="{{ item.link }}" class="link-button">
+                            <p class="no-mb me-2">{{ item.text }}</p>
+                            <span class="material-symbols-outlined">chevron_right</span>
+                        </a>
+                    {% endif %}
+                {% endfor %} 
             </div>
-       </div>
+        </div>
     </div>
 </div>
+
+{% assign recent_first = site.projects |  sort: "nid" %}
+
+{% for p in recent_first %}
+    {% assign mod = p.nid | modulo: 2 %}
+    {% assign source = "/assets/images/portfolio/projects" |  append: p.link |  append: "/preview.png" %}
+
+    <div {% if mod != 0 %} class="bg-yellow-transparent" {% endif %}>
+        <div class="container py-4">
+            <div class="row">
+                <div {% if mod != 0 %} class="col-5" {% else %} class="col-5 order-last" {% endif %}>
+                    <div class="d-flex flex-column">
+                        <h1 class="no-mb">{{ p.title }}</h1>
+                        <h5 class="fw-light">{{ p.type }}</h5>
+                        
+                        <hr>
+
+                        <p>{{ p.desc }}</p>
+
+                        <div class="tech-stack mb-5">
+                            {% assign tech_list = p.tech |  split: ", " %}
+                            {% for t in tech_list %}
+                                <p class="tech-bubble">{{ t }}</p>
+                            {% endfor %}
+                        </div>
+                        
+                        <p class="no-mb fw-light mt-auto">{{ p.short-dates }}</p>
+                    </div>
+
+                    <a href="{{ p.url }}">View Project</a>
+                </div>
+
+                <div class="col-7 p-4">
+                    <img src="{{ source }}" alt="{{ p.title | append: ' Preview' }}" class="preview-image">
+                </div>
+            </div>
+        </div>
+    </div>         
+{% endfor %}

@@ -1,22 +1,26 @@
 ---
 layout: main
-title: Contact
-permalink: /contact
+title: About Me
+permalink: /about
 ---
 
 <div class="row gx-5 gy-3 justify-content-center">
-    <div class="col-sm-10 col-lg-6">
+    <div class="col-sm-10 col-lg-5">
         <h1 class="d-lg-none mb-2 fw-bold">Feel free to reach out!</h1>
         <h2 class="d-none d-lg-block mb-3 fw-bold">Feel free to reach out!</h2>
 
-        <p class="no-mb">
-            Email me at
-            <span class="text-decoration-underline fst-italic">melthill2003@gmail.com</span> 
-            or submit the form below.
-        </p>
+        <div class="d-flex flex-column align-items-center">
+            <div class="w-100 d-flex justify-content-center bg-yellow-transparent p-4 rounded">
+                <p class="no-mb">
+                    Email me at
+                    <span class="text-decoration-underline fst-italic">melthill2003@gmail.com</span>
+                </p>
+            </div>
+            
+            <img class="d-none d-lg-block pt-5" src="/assets/images/favicon/favicon.svg" alt="Website Logo" style="width: 50%;">
+        </div>
         
-
-        <hr class="mb-2">
+        {% comment %} <hr class="mb-2">
 
         <div class="d-flex justify-content-center">
             <p class="no-mb fst-italic text-sm">[ Warning: This form is a work in progress and it might not work as expected. ]</p>
@@ -48,10 +52,10 @@ permalink: /contact
             <div class="d-flex justify-content-end">
                 <button onclick="sendEmail()" class="custom-button mt-2">Submit Email to be sent</button>
             </div>
-        </div>
+        </div> {% endcomment %}
     </div>
 
-    <div class="col-sm-10 col-lg-5">
+    <div class="col-sm-10 col-lg-7">
         <h1 class="d-lg-none mb-2 fw-bold">...or check out my Socials!</h1>
         <h2 class="d-none d-lg-block mb-3 fw-bold">...or check out my Socials!</h2>
 
