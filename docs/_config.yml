@@ -40,8 +40,6 @@ collections:
     permalink: /portfolio/projects/:title
   art:
     output: true
-  design:
-    output: true
 
 defaults:
   - scope:
