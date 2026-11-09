@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Software Projects
+title: UI/UX Portfolio
 permalink: /portfolio
 ---
 <div class="header">
@@ -17,33 +17,26 @@ permalink: /portfolio
     {% assign mod = p.nid | modulo: 2 %}
     {% assign source = "/assets/images/portfolio/projects" |  append: p.link |  append: "/preview.png" %}
 
-    <div {% if mod == 0 %} class="bg-yellow-transparent" {% endif %}>
-        <div class="container py-4">
-            <div class="row">
+    <div {% if mod != 0 %} class="bg-yellow-transparent" {% endif %}>
+        <div class="container py-5">
+            <div class="row justify-content-center my-5">
                 <div {% if mod != 0 %} class="col-5" {% else %} class="col-5 order-last" {% endif %}>
-                    <div class="d-flex flex-column">
-                        <h1 class="no-mb">{{ p.title }}</h1>
-                        <h5 class="fw-light">{{ p.type }}</h5>
-                        
-                        <hr>
+                    <p class="project-preview-title">{{ p.title }}</p>
+                    <p class="project-preview-subtitle">{{ p.subtitle }}</p>
+                    
+                    <hr class="mt-0">
 
-                        <p>{{ p.desc }}</p>
+                    <p class="project-preview-text">{{ p.desc }}</p>
 
-                        <div class="tech-stack mb-5">
-                            {% assign tech_list = p.tech |  split: ", " %}
-                            {% for t in tech_list %}
-                                <p class="tech-bubble">{{ t }}</p>
-                            {% endfor %}
-                        </div>
-                        
-                        <p class="no-mb fw-light mt-auto">{{ p.short-dates }}</p>
+                    <div {% if mod != 0 %} class="d-flex mt-4 justify-content-start" {% else %} class="d-flex mt-4 justify-content-end" {% endif %}>
+                        <a class="custom-button-light" href="{{ p.url }}">View Project</a>
                     </div>
-
-                    <a href="{{ p.url }}"></a>
                 </div>
 
-                <div class="col-7 p-4">
-                    <img src="{{ source }}" alt="{{ p.title | append: ' Preview' }}" class="preview-image">
+                <div class="col-6">
+                    <div {% if mod != 0 %} class="h-100 d-flex align-items-center justify-content-end" {% else %} class="h-100 d-flex align-items-center justify-content-start" {% endif %}>
+                        <img src="{{ source }}" alt="{{ p.title | append: ' Preview' }}" class="preview-image">
+                    </div>
                 </div>
             </div>
         </div>

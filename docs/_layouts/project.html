@@ -2,15 +2,17 @@
 layout: default
 permalink: /portfolio/projects/:name
 ---
+{% assign source = "/assets/images/portfolio/projects" |  append: page.link |  append: "/beauty.png" %}
+<img src="{{ source }}" alt="{{ page.title | append: ' Beauty Image' }}" class="beauty-image">
 
 <div class="header">
     <div class="container py-2">
         <div class="d-flex justify-content-between align-items-start">
             <h1 class="no-mb display-2">{{ page.title }}</h1> 
-            <h4 class="mt-3 fw-light">{{ page.dates }}</h4>
+            <h4 class="mt-3 fw-light">{{ page.short-dates }}</h4>
         </div>
 
-        <h4 class="fw-light">{{ page.type }}</h4>
+        <h4 class="fw-light">{{ page.subtitle }}</h4>
 
         <div class="tech-stack">
             {% assign tech_list = page.tech |  split: ", " %}

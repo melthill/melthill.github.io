@@ -2,25 +2,26 @@
 layout: default
 title: Home
 ---
-<div class="index-container mb-auto">
+<div class="container index-container">
     <div class="row gx-5 gy-4 justify-content-center">
-        <div class="col-12 col-lg-3 d-flex justify-content-center align-items-center justify-content-xl-end">
+        <div class="col-12 col-lg-5 col-xl-4 d-flex justify-content-center align-items-center justify-content-xl-end">
             <img src="/assets/images/portrait_with_persona.png" alt="Personal Portrait" class="portrait-image">
         </div>
 
-        <div class="col-12 col-lg-8 col-xl-5 d-flex flex-column justify-content-end">
+        <div class="col-12 col-lg-7 col-xl-6 d-flex flex-column justify-content-end">
             <h1 class="display-4 fw-normal">Hi, my name is <span class="fw-bolder">Mel</span>.</h1>
-            <h4 class="fw-light mb-4">I am a MSc Software Development graduate with a passion for UI/UX research. When possible I also like to do some work as a digital artist.</h3>
+            <h4 class="fw-light mb-4">I am a MSc Software Development graduate with a passion for UI/UX research and design. When possible I also like to do some work as a digital artist.</h4>
 
-            <div class="d-md-flex mb-2">
-                {% for item in site.data.navigation %} 
-                    {% if item.link != '/art' %}
-                        <a href="{{ item.link }}" class="link-button">
-                            <p class="no-mb me-2">{{ item.text }}</p>
-                            <span class="material-symbols-outlined">chevron_right</span>
-                        </a>
-                    {% endif %}
-                {% endfor %} 
+            <div class="d-sm-flex justify-content-end mb-2">
+                <a href="/portfolio" class="link-button mb-2 mb-sm-0 me-sm-2">
+                    <p class="no-mb me-2">Check out my Portfolio</p>
+                    <span class="material-symbols-outlined">chevron_right</span>
+                </a>
+
+                <a href="/about" class="link-button">
+                    <p class="no-mb me-2">Contact me</p>
+                    <span class="material-symbols-outlined">chevron_right</span>
+                </a>
             </div>
         </div>
     </div>
@@ -33,32 +34,29 @@ title: Home
     {% assign source = "/assets/images/portfolio/projects" |  append: p.link |  append: "/preview.png" %}
 
     <div {% if mod != 0 %} class="bg-yellow-transparent" {% endif %}>
-        <div class="container py-4">
-            <div class="row">
-                <div {% if mod != 0 %} class="col-5" {% else %} class="col-5 order-last" {% endif %}>
-                    <div class="d-flex flex-column">
-                        <h1 class="no-mb">{{ p.title }}</h1>
-                        <h5 class="fw-light">{{ p.type }}</h5>
-                        
-                        <hr>
-
-                        <p>{{ p.desc }}</p>
-
-                        <div class="tech-stack mb-5">
-                            {% assign tech_list = p.tech |  split: ", " %}
-                            {% for t in tech_list %}
-                                <p class="tech-bubble">{{ t }}</p>
-                            {% endfor %}
-                        </div>
-                        
-                        <p class="no-mb fw-light mt-auto">{{ p.short-dates }}</p>
+        <div class="container py-5">
+            <div class="row justify-content-center mx-1 my-5">
+                <div {% if mod != 0 %} class="project-preview col-lg-5" {% else %} class="project-preview col-lg-5 order-last" {% endif %}>
+                    <div class="d-flex d-lg-none align-items-center justify-content-center">
+                        <img src="{{ source }}" alt="{{ p.title | append: ' Preview' }}" class="preview-image">
                     </div>
 
-                    <a href="{{ p.url }}">View Project</a>
+                    <p class="project-preview-title">{{ p.title }}</p>
+                    <p class="project-preview-subtitle">{{ p.subtitle }}</p>
+                    
+                    <hr class="mt-0">
+
+                    <p class="project-preview-text">{{ p.desc }}</p>
+
+                    <div {% if mod != 0 %} class="d-flex mt-4 justify-content-start" {% else %} class="d-flex mt-4 justify-content-end" {% endif %}>
+                        <a class="custom-button-light" href="{{ p.url }}">View Project</a>
+                    </div>
                 </div>
 
-                <div class="col-7 p-4">
-                    <img src="{{ source }}" alt="{{ p.title | append: ' Preview' }}" class="preview-image">
+                <div class="col-lg-6 d-none d-lg-block">
+                    <div {% if mod != 0 %} class="h-100 d-flex align-items-center justify-content-end" {% else %} class="h-100 d-flex align-items-center justify-content-start" {% endif %}>
+                        <img src="{{ source }}" alt="{{ p.title | append: ' Preview' }}" class="preview-image">
+                    </div>
                 </div>
             </div>
         </div>

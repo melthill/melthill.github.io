@@ -1,11 +1,6 @@
 - name: Portfolio
   link: /portfolio
-  text: Check out Portfolio
 - name: Digital Art
   link: /art
-- name: CV
+- name: About Me
   link: /about
-  text: View CV
-- name: About
-  link: /about
-  text: Contact me
